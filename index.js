@@ -2,23 +2,23 @@ const { createCanvas, loadImage } = require('canvas')
 const fs = require('fs')
 
 // Ruta de la imagen que deseas modificar
-const imagePath = 'public/hero-photo.jpg';
+const imagePath = 'public/hero-photo.jpg'
 
 // Crear un nuevo canvas
-const canvas = createCanvas(800, 600);
+const canvas = createCanvas(800, 600)
 const context = canvas.getContext('2d')
 
 // Cargar la imagen
 loadImage(imagePath).then(image => {
   // Asignar el ancho y alto del canvas al de la imagen
-  canvas.width = image.width;
-  canvas.height = image.height;
+  canvas.width = image.width
+  canvas.height = image.height
 
   // Dibujar la imagen en el canvas
-  context.drawImage(image, 0, 0);
+  context.drawImage(image, 0, 0)
 
   // Agregar texto en una ubicación específica
-  context.font = '50px Arial';
+  context.font = '50px Arial'
   context.fillStyle = '#000000'
 
 
@@ -29,13 +29,13 @@ loadImage(imagePath).then(image => {
   context.fillText('789.52', 270, 885)
 
   // Guardar la imagen modificada en disco
-  const outputImagePath = 'public/dayPhoto/prueba.jpg';
-  const out = fs.createWriteStream(outputImagePath);
-  const stream = canvas.createJPEGStream();
-  stream.pipe(out);
+  const outputImagePath = 'public/dayPhoto/prueba.jpg'
+  const out = fs.createWriteStream(outputImagePath)
+  const stream = canvas.createJPEGStream()
+  stream.pipe(out)
   out.on('finish', () => {
-    console.log('Imagen modificada guardada con éxito.');
-  });
+    console.log('Imagen modificada guardada con éxito.')
+  })
 }).catch(error => {
-  console.log('Ocurrió un error al cargar la imagen:', error);
+  console.log('Ocurrió un error al cargar la imagen:', error)
 });
