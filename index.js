@@ -8,12 +8,6 @@ const imagePath = 'public/hero-photo.jpg';
 const canvas = createCanvas(800, 600);
 const context = canvas.getContext('2d')
 
-process.stdout.write('Ingresa el valor Chile')
-
-const question1 = process.stdin.on('data', data => {
-  process.exit()
-})
-console.log(question1)
 // Cargar la imagen
 loadImage(imagePath).then(image => {
   // Asignar el ancho y alto del canvas al de la imagen
@@ -28,7 +22,7 @@ loadImage(imagePath).then(image => {
   context.fillStyle = '#000000'
 
 
-  context.fillText(question1, 270, 385)
+  context.fillText('777.24', 270, 385)
   context.fillText('789.52', 270, 510)
   context.fillText('789.52', 270, 635)
   context.fillText('789.52', 270, 760)
