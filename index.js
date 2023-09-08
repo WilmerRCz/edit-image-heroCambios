@@ -1,5 +1,19 @@
 const { createCanvas, loadImage } = require('canvas')
 const fs = require('fs')
+const readline = require('readline')
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+let valorIngresado; // Declara la variable
+
+rl.question('Por favor, ingresa un valor: ', (input) => {
+  valorIngresado = input // Asigna el valor a la variable
+  console.log(`Ingresaste: ${valorIngresado}`)
+  rl.close()
+})
 
 // Ruta de la imagen que deseas modificar
 const imagePath = 'public/hero-photo.jpg'
